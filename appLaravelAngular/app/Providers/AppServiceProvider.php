@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->environment() == 'local') {
+          //Regista nuevos comandos en la section make en 'php artisan'
+          $this->app->register('Laracasts\Generators\GeneratorsServiceProvider');
+        }
     }
 }

@@ -23,4 +23,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //Relationship
+    public function jokes() {
+      return $this->hasMany('App\Joke', 'user_id', 'id');
+    }
 }
